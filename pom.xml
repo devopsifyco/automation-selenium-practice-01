@@ -11,6 +11,39 @@
     <properties>
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
+        <testng>7.7.0</testng>
+        <selenium>4.8.1</selenium>
     </properties>
+<dependencies>
+    <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+    <dependency>
+        <groupId>org.testng</groupId>
+        <artifactId>testng</artifactId>
+        <version>${testng}</version>
+        <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+    <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+        <version>${selenium}</version>
+    </dependency>
 
+</dependencies>
+    <build>
+    <plugins>
+    <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.0.0</version>
+    <configuration>
+        <skipExec>false</skipExec>
+        <skipTests>false</skipTests>
+        <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+        </suiteXmlFiles>
+    </configuration>
+    </plugin>
+    </plugins>
+    </build>
 </project>
