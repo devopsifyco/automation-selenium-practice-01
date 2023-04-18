@@ -3,9 +3,11 @@
 <suite name="All Test Suite">
     <test verbose="2" name="suit name">
         <classes>
-            <class name="testcase.TestCase01">
+            <!--<class name="testcase.TestCase01">
             </class>
             <class name="testcase.TestCase02">
+            </class>-->
+            <class name="testcase.NodoSignup">
             </class>
         </classes>
     </test>
