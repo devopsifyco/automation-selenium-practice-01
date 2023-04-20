@@ -7,7 +7,9 @@
             </class>
             <class name="testcase.TestCase02">
             </class>-->
-            <class name="testcase.NodoSignup">
+            <!--<class name="testcase.NodoSignup">
+            </class>-->
+            <class name="testcase.NodooSignin">
             </class>
         </classes>
     </test>
