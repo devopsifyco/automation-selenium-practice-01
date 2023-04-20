@@ -5,7 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.sql.Driver;
@@ -26,10 +28,15 @@ public class NodooSignin {
         Singin.click();
 
         WebElement Emailtext = driver.findElement(By.xpath("(//input[@placeholder='Enter your email'])[5]"));
-        Emailtext.sendKeys("consiu86+2@gmail.com");
+        Emailtext.sendKeys("consiu86+222@gmail.com");
         WebElement Password = driver.findElement(By.xpath("(//input[@type='password'])"));
         Password.sendKeys("Lourdes1985*");
         WebElement ButtonSignin = driver.findElement(By.xpath("(//button[@type='submit'])"));
         ButtonSignin.click();
+
+        WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".error-content")));
+        String expectedErrorMessage = "We couldn’t find an account matching the username and password you entered. Please check your username and password and try again.";
+        String actualErrorMessage = errorMessage.getText().trim();
+        Assert.assertEquals(actualErrorMessage, expectedErrorMessage);
     }
 }
