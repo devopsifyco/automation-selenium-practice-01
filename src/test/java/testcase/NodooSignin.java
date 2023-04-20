@@ -14,10 +14,10 @@ import java.time.Duration;
 public class NodooSignin {
     @Test
     public void NodooSignin(){
-        ChromeOptions chromeOptions = new ChromeOptions();
+        ChromeOptions chromeOptions = new ChromeOptions();//khoi tao doi tuong chrome option de dinh cau hih cac tuy chon cua trinh duyet
         chromeOptions.addArguments("--remote-allow-origins=*"); //version browse 111....
         chromeOptions.addArguments("--disable-notifications");
-        ChromeDriver driver = new ChromeDriver(chromeOptions);
+        ChromeDriver driver = new ChromeDriver(chromeOptions);//khoi tao doi tong chrome driver de co the thao tac tren trinh duyet
         driver.get("https://node-web.chainservices.info/");
         driver.manage().window().maximize();
 
