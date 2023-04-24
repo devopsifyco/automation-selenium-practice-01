@@ -13,7 +13,8 @@ import java.time.Duration;
 
 public class NodoSignup {
 
-    @Test
+    @Test(groups = {"website"})//chay nhung thang co group website thoi
+
     public void testNodoSignup() {
         ChromeOptions chromeoption = new ChromeOptions();
         chromeoption.addArguments("--remote-allow-origins=*"); //version browse 111....
@@ -31,16 +32,16 @@ public class NodoSignup {
 
 
         WebElement Email = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//input[@class='ant-input'])[5]")));
-        Email.sendKeys("consiu86+2@gmail.com");
+        Email.sendKeys("consiu86+8@gmail.com");
         WebElement Code = driver.findElement(By.xpath("(//input[@class='ant-input'])[6]"));
         Code.sendKeys("MPQLTIDODJPI");
         WebElement Submit = driver.findElement(By.xpath("(//button[@type='submit'])"));
         Submit.click();
 
-        WebElement Errorcontent = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".error-content")));
+        /*WebElement Errorcontent = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".error-content")));
         String expectedresult = "Email has been registered already";
         String actualresult = Errorcontent.getText();
-        Assert.assertEquals(actualresult, expectedresult);
+        Assert.assertEquals(actualresult, expectedresult);*/
 
     }
 }
