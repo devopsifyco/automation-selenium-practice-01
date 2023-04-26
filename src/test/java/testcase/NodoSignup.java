@@ -11,21 +11,22 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class NodoSignup {
+public class NodoSignup  extends BaseTest{
 
     @Test(groups = {"website"})//chay nhung thang co group website thoi
-
     public void testNodoSignup() {
-        ChromeOptions chromeoption = new ChromeOptions();
+        System.out.println("signup");
+
+      /*  ChromeOptions chromeoption = new ChromeOptions();
         chromeoption.addArguments("--remote-allow-origins=*"); //version browse 111....
         chromeoption.addArguments("--disable-notifications");
 
 
         ChromeDriver driver = new ChromeDriver(chromeoption);
         driver.get("https://node-web.chainservices.info/");
-        driver.manage().window().maximize();
+        driver.manage().window().maximize();*/
 
-
+/*
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         WebElement Signup = wait.until(webDriver -> driver.findElement(By.className("btn-sign-up")));
         Signup.click();
@@ -36,7 +37,7 @@ public class NodoSignup {
         WebElement Code = driver.findElement(By.xpath("(//input[@class='ant-input'])[6]"));
         Code.sendKeys("MPQLTIDODJPI");
         WebElement Submit = driver.findElement(By.xpath("(//button[@type='submit'])"));
-        Submit.click();
+        Submit.click();*/
 
         /*WebElement Errorcontent = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".error-content")));
         String expectedresult = "Email has been registered already";
