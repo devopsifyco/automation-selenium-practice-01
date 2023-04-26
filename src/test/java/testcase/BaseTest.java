@@ -15,7 +15,7 @@ import java.time.Duration;
 
 public class BaseTest {
     WebDriver driver;
-
+    // Quang test
     @Parameters("browser")
     @BeforeClass
     public void setUp(String sbrowser) {
