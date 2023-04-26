@@ -9,7 +9,7 @@ public class TestCase02 {
         System.out.println("Tong la:");
     }
 
-    @Test
+    @Test(groups = "A")
     public void Sum04() {
         System.out.println("Tong 02 la:");
         Assert.assertEquals(2,2);

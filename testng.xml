@@ -3,12 +3,13 @@
 <suite name="All Test Suite">
     <groups>
         <run>
-            <include name="website"/>
+            <include name="A"/>
         </run>
     </groups>
+
     <test verbose="2" name="suit name">
         <classes>
-            <class name="testcase.NodooSignin"/>
+            <class name="testcase.TestCase02"/>
         </classes>
     </test>
 </suite>
