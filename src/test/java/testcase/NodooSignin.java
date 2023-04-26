@@ -34,13 +34,9 @@ public class NodooSignin {
         WebElement ButtonSignin = driver.findElement(By.xpath("(//button[@type='submit'])"));
         ButtonSignin.click();
 
-        WebElement errormessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".error-content")));
-        String expectedresult = "We couldn’t find an account matching the username and password you entered. Please check your username and password and try again.";
-        String actualresult = errormessage.getText();
-        Assert.assertEquals(actualresult, expectedresult);
-        /*WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".error-content")));
+        WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".error-content")));
         String expectedErrorMessage = "We couldn’t find an account matching the username and password you entered. Please check your username and password and try again.";
         String actualErrorMessage = errorMessage.getText().trim();
-        Assert.assertEquals(actualErrorMessage, expectedErrorMessage);*/
+        Assert.assertEquals(actualErrorMessage, expectedErrorMessage);
     }
 }
