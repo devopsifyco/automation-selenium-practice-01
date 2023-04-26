@@ -15,7 +15,7 @@ public class Google extends BaseTest{
         Assert.assertEquals(driver.getTitle(),"Google");
     }
 
-    @Parameters("Search")
+    @Parameters("Search")//test
     @Test
     public void search(String sSearch){
         WebElement eSearch = driver.findElement(By.name("q"));
