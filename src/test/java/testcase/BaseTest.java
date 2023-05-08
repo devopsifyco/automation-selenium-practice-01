@@ -14,7 +14,7 @@ import org.testng.annotations.*;
 import java.time.Duration;
 
 public class BaseTest {
-    WebDriver driver;
+   WebDriver driver;
 
     @Parameters("browser")
     @BeforeClass
