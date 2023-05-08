@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="PrintName">
+    <test name="PrintInfo">
+        <parameter name="fullname" value="Siu DepTrai"/>
+        <parameter name="birthday" value="1986"/>
+        <classes>
+            <class name="PhuTran.PrintInfo" />
+        </classes>
+    </test>
+</suite>
