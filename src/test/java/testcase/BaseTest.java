@@ -12,9 +12,13 @@ import org.openqa.selenium.safari.SafariOptions;
 import org.testng.annotations.*;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class BaseTest {
    WebDriver driver;
+
 
     @Parameters("browser")
     @BeforeClass
@@ -64,5 +68,4 @@ public class BaseTest {
         driver.quit();
         System.out.println("tear down");
     }
-
 }
