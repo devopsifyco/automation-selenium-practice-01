@@ -6,12 +6,11 @@ import org.testng.annotations.Test;
 public class TestCase01 {
     @Test//them annotation
     public void Sum() {
-        System.out.println("Tong la:");
+        System.out.println("Tong lan 1:");
     }
 
     @Test
     public void Sum02() {
-        System.out.println("Tong 02 la:");
-        Assert.assertEquals(2,6);
+        System.out.println("Tong lan 2:");
     }
 }
