@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 public class SearchDog extends SetupChrome {
-    @Test
+    @Test (priority = 2)
     public void searchDogKeyword() {
         setupchrome(); // Call the method from the parent class to access Google
 
@@ -13,5 +13,11 @@ public class SearchDog extends SetupChrome {
         WebElement searchBox = driver.findElement(By.name("q"));
         searchBox.sendKeys("dog");
         searchBox.submit();
+    }
+    @Test (priority = 1)
+    public void GotoGmail (){
+        WebElement gmail = driver.findElement(By.linkText("Gmail"));
+        gmail.click();
+
     }
 }
