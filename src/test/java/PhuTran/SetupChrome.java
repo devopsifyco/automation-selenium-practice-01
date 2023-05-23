@@ -8,11 +8,10 @@ import org.testng.annotations.Test;
 public class SetupChrome {
     WebDriver driver;
     @Test
-    public void setupchrome(){
+    public void setup (){
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--remote-allow-origins=*"); //version browse 111....
         chromeOptions.addArguments("--disable-notifications");
         driver = new ChromeDriver(chromeOptions);
-        driver.get("https://www.google.com.vn/");
-            }
+    }
 }

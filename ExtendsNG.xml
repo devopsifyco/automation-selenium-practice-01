@@ -1,8 +1,0 @@
-<suite name = "testsuite">
-    <test name = "extends">
-        <classes>
-            <class name = "PhuTran.SearchDog"/>
-        </classes>
-
-    </test>
-</suite>

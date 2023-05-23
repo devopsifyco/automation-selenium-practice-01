@@ -1,0 +1,9 @@
+<suite name = "Learn Auto">
+    <test name = "Extends">
+        <parameter name = "keyword" value = "dog"/>
+        <classes>
+            <!--<class name = "PhuTran.GooglePage"/>-->
+            <class name = "PhuTran.GithubPage"/>
+        </classes>
+    </test>
+</suite>
