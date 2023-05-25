@@ -19,10 +19,10 @@ public class HomePage extends BasePage {
         return getElement(lnkRegister);
     }
 
-    public RegisterPage navigateToPage(){
+    public RegisterPage navigateToPage() throws Exception {
         //getElement(lnkRegister).click();
         clickElement(lnkRegister);
-        return null;
+        return getInstance(RegisterPage.class);
     }
 
     public String getHomePageTitle(){

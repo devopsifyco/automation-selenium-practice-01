@@ -45,7 +45,6 @@ public class BaseTests {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--remote-allow-origins=*"); //version browse 111....
                 chromeOptions.addArguments("--disable-notifications");
-                System.out.println("start chrome");
                 driver = new ChromeDriver(chromeOptions);
             }
 
