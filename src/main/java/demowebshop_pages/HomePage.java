@@ -10,8 +10,6 @@ public class HomePage extends BasePage {
     //Page objects
     private final By lnkRegister = By.linkText("Register");
 
-    //title: Demo Web Shop. Register
-
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -21,9 +19,10 @@ public class HomePage extends BasePage {
         return getElement(lnkRegister);
     }
 
-    public void navigateToPage(){
+    public RegisterPage navigateToPage(){
         //getElement(lnkRegister).click();
         clickElement(lnkRegister);
+        return null;
     }
 
     public String getHomePageTitle(){
