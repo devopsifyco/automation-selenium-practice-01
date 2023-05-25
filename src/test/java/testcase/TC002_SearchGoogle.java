@@ -22,5 +22,4 @@ public class TC002_SearchGoogle extends BaseTest{
         g.search(sSearch);
         Assert.assertEquals(2,2);
     }
-
 }

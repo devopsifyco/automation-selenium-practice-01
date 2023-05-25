@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <parameter name="Search" value="automation test"></parameter>
+    <parameter name="Search" value="automation test"/>
     <test verbose="2" name="chrome">
         <parameter name="browser" value="chrome"/>
         <classes>
@@ -9,5 +9,4 @@
             <class name="testcase.TC002_SearchGoogle"/>
         </classes>
     </test>
-
 </suite>
