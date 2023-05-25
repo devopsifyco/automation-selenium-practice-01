@@ -3,6 +3,7 @@ package base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class BasePage extends Page{
     protected WebDriver driver;
@@ -18,6 +19,10 @@ public class BasePage extends Page{
     @Override
     public WebElement getElement(By locator) {
         try {
+            //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+            //Wait for element to be appeared
+            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+
             return driver.findElement(locator);
         } catch (Exception e){
             System.out.println(locator.toString() + e);
@@ -41,8 +46,8 @@ public class BasePage extends Page{
     }
 
     @Override
-    public void click(By locator) {
-        WebElement e =getElement(locator);
+    public void clickElement(By locator) {
+        WebElement e = getElement(locator);
         if (e.isDisplayed() && e.isEnabled()){
             e.click();
         }else {

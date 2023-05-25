@@ -1,5 +1,6 @@
 package testcase;
 
+import base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -18,7 +19,6 @@ import java.util.Set;
 
 public class BaseTest {
    WebDriver driver;
-
 
     @Parameters("browser")
     @BeforeClass
@@ -54,6 +54,8 @@ public class BaseTest {
 
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             driver.manage().timeouts().implicitlyWait(Duration.ZERO);
+
+            driver.get("https://demowebshop.tricentis.com/");
         }
     }
 

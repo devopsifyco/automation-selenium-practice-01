@@ -31,6 +31,6 @@ public abstract class Page{
     public abstract String getPageTitle();
     public abstract String getPageHeader(By locator);
     public abstract WebElement getElement(By locator);
-    public abstract void click(By locator);
+    public abstract void clickElement(By locator);
     public abstract void enter(By locator, String text);
 }
