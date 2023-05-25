@@ -1,8 +1,0 @@
-<suite name ="LeaningAuto">
-    <test name = "Access Webs">
-        <classes>
-            <class name = "PhuTran.AccessGoogle"/>
-            <class name = "PhuTran.AccessYoutube"/>
-        </classes>>
-    </test>
-</suite>
