@@ -31,18 +31,23 @@ public class BasePage extends Page{
     }
 
     @Override
-    public String getPageHeader(By locator) {
-
-        return getElement(locator).getAttribute("alt");
+    public String getPageHeader(By locator, String att) {
+        return getElement(locator).getAttribute(att);
     }
+
     @Override
     public void enter(By locator, String text) {
-        WebElement e =getElement(locator);
+        WebElement e = getElement(locator);
         if (e.isDisplayed() && e.isEnabled()){
             e.sendKeys(text);
         }else {
             System.out.println("Not allow editable");
         }
+    }
+
+    @Override
+    public String getValue(By locator) {
+        return getElement(locator).getText();
     }
 
     @Override

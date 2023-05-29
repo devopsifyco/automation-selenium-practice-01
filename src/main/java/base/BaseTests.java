@@ -62,13 +62,13 @@ public class BaseTests {
 
     @AfterClass
     public void tearDownClass(){
-        driver.close();
+   //     driver.close();
         System.out.println("tear down class");
     }
 
     @AfterSuite
     public void tearDown(){
-        driver.quit();
+     //   driver.quit();
         System.out.println("tear down");
     }
 }

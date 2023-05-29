@@ -14,13 +14,15 @@ public abstract class Page{
 
     //Contructor
     public Page(WebDriver driver){
-        this.driver = driver;
-        this.wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
+       this.driver = driver;
+       this.wait = new WebDriverWait(this.driver, Duration.ofSeconds(15)); //explixit wait
     }
+
     //non-abstract method
     public <TPage extends BasePage> TPage getInstance(Class<TPage> pageClass) throws Exception {
         try {
             return pageClass.getDeclaredConstructor(WebDriver.class).newInstance(this.driver);
+
         }catch (Exception e){
             System.out.println(e.getMessage());
             throw e;
@@ -29,8 +31,9 @@ public abstract class Page{
 
     //abstract methods
     public abstract String getPageTitle();
-    public abstract String getPageHeader(By locator);
+    public abstract String getPageHeader(By locator,String att);
     public abstract WebElement getElement(By locator);
     public abstract void clickElement(By locator);
     public abstract void enter(By locator, String text);
+    public abstract String getValue(By locator);
 }
