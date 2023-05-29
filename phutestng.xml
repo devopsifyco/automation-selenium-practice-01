@@ -1,10 +1,8 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="PrintName">
-    <test name="PrintInfo">
-        <parameter name="fullname" value="Siu DepTrai"/>
-        <parameter name="birthday" value="1986"/>
+<suite name ="LeaningAuto">
+    <test name = "Access Webs">
         <classes>
-            <class name="PhuTran.PrintInfo" />
-        </classes>
+            <class name = "PhuTran.AccessGoogle"/>
+            <class name = "PhuTran.AccessYoutube"/>
+        </classes>>
     </test>
 </suite>
