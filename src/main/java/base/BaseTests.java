@@ -1,6 +1,4 @@
-package testcase;
-
-import base.BasePage;
+package base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -10,15 +8,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
+
 import org.testng.annotations.*;
 
-import java.time.Duration;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
 
-public class BaseTest {
-   WebDriver driver;
+import java.time.Duration;
+
+public class BaseTests {
+    WebDriver driver;
+    protected static Page page;
 
     @Parameters("browser")
     @BeforeClass
@@ -56,6 +54,9 @@ public class BaseTest {
             driver.manage().timeouts().implicitlyWait(Duration.ZERO);
 
             driver.get("https://demowebshop.tricentis.com/");
+
+            // Create object page with driver
+            page = new BasePage(driver);
         }
     }
 
