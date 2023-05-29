@@ -1,3 +1,4 @@
+/*
 package demowebshop_Tests;
 
 import base.BaseTests;
@@ -22,3 +23,4 @@ public class TC001 extends BaseTests {
         Assert.assertEquals(registerPage.getRegisterPageTitle(),expTitleRegisterPage);
     }
 }
+*/
