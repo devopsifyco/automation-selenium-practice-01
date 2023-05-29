@@ -5,8 +5,7 @@
     <test verbose="2" name="chrome">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="testcase.TC001_ChangeLanguageSuccess"/>
-            <class name="testcase.TC002_SearchGoogle"/>
+            <class name="demowebshop_Tests.TC001"/>
         </classes>
     </test>
 </suite>
