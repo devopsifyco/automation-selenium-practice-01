@@ -12,7 +12,7 @@ public abstract class Page{
     protected WebDriver driver;
     WebDriverWait wait;
 
-    //Contructor
+    //Contructor: khoi tao de chúng dc sử dụng xuyên suốt lớp Page
     public Page(WebDriver driver){
        this.driver = driver;
        this.wait = new WebDriverWait(this.driver, Duration.ofSeconds(15)); //explixit wait
