@@ -9,7 +9,7 @@ public class LoginPage extends BasePage {
     private final By header = By.tagName("h1");
     private final By tbxEmail = By.id("Email");
     private final By tbxPassword = By.id("Password");
-    private final By btnLogin = By.className("button-1 login-button");
+    /*private final By btnLogin = By.className("button-1 login-button");*/
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -18,10 +18,10 @@ public class LoginPage extends BasePage {
         return getPageTitle();
     }
 
-    public void login(String sEmail, String sPassword)
+    /*public void login(String sEmail, String sPassword)
     {
         enter(tbxEmail, sEmail);
         enter(tbxPassword, sPassword);
         clickElement(btnLogin);
-    }
+    }*/
 }
