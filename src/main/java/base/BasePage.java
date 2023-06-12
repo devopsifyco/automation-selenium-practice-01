@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.List;
+
 public class BasePage extends Page{
 
     public BasePage(WebDriver driver) {
@@ -33,6 +35,20 @@ public class BasePage extends Page{
     }
 
     @Override
+    public List<WebElement> getLstElement(By locator) {
+        try {
+            //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+            //Wait for element to be appeared
+            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+
+            return driver.findElements(locator);
+        } catch (Exception e){
+            System.out.println(locator.toString() + e);
+        }
+        return null;
+    }
+
+    @Override
     public String getPageHeader(By locator, String att) {
 
         return getElement(locator).getAttribute(att);
@@ -50,8 +66,12 @@ public class BasePage extends Page{
 
     @Override
     public String getValue(By locator) {
-
         return getElement(locator).getText();
+    }
+
+    @Override
+    public String getAttributeValue(WebElement e,String attribute) {
+        return e.getAttribute(attribute);
     }
 
     @Override

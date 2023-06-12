@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public abstract class Page{
     //IMPORTANCE
@@ -33,7 +34,9 @@ public abstract class Page{
     public abstract String getPageTitle();
     public abstract String getPageHeader(By locator,String att);
     public abstract WebElement getElement(By locator);
+    public abstract List<WebElement> getLstElement(By locator);
     public abstract void clickElement(By locator);
     public abstract void enter(By locator, String text);
     public abstract String getValue(By locator);
+    public abstract String getAttributeValue(WebElement e,String attribute);
 }
