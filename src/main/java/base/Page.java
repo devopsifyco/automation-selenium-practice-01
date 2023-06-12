@@ -9,11 +9,11 @@ import java.time.Duration;
 
 public abstract class Page{
     //IMPORTANCE
-    protected WebDriver driver;
+    protected WebDriver driver;//nhung đứa thừa kế sẽ thấy dc driver này
     WebDriverWait wait;
 
     //Contructor: khoi tao de chúng dc sử dụng xuyên suốt lớp Page
-    public Page(WebDriver driver){
+    public Page(WebDriver driver){//truyển webdriver vô nên các con của nó sẽ có key super
        this.driver = driver;
        this.wait = new WebDriverWait(this.driver, Duration.ofSeconds(15)); //explixit wait
     }

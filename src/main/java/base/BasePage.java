@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class BasePage extends Page{
 
     public BasePage(WebDriver driver) {
+
         super(driver);
     }
 
@@ -33,6 +34,7 @@ public class BasePage extends Page{
 
     @Override
     public String getPageHeader(By locator, String att) {
+
         return getElement(locator).getAttribute(att);
     }
 
@@ -48,11 +50,12 @@ public class BasePage extends Page{
 
     @Override
     public String getValue(By locator) {
+
         return getElement(locator).getText();
     }
 
     @Override
-    public void clickElement(By locator) {
+    public void clickElement(By locator) {//locator kieu by
         WebElement e = getElement(locator);
         if (e.isDisplayed() && e.isEnabled()){
             e.click();
