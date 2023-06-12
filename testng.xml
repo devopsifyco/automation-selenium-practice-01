@@ -2,10 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <parameter name="Search" value="automation test"/>
+    <parameter name="expTitleWishListPage" value="Demo Web Shop. Wishlist"/>
+    <parameter name="expTitleShoppingCartPage" value="Demo Web Shop. Shopping Cart"/>
     <test verbose="2" name="chrome">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="demowebshop_Tests.TC001"/>
+            <class name="demowebshop_Tests.TC004_Wishlist"/>
         </classes>
     </test>
 </suite>

@@ -1,15 +1,12 @@
 package demowebshop_Tests;
 
 import base.BaseTests;
-import base.Page;
 import demowebshop_pages.HomePage;
 import demowebshop_pages.LoginPage;
-import demowebshop_pages.RegisterPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testcase.BaseTest;
 
-public class TC_002 extends BaseTests {
+public class TC002_Login extends BaseTests {
     String expTitleLoginPage ="Demo Web Shop. Login";
     String expTitleHomePage = "Demo Web Shop.";
    // String expRegisterSuccMessage= "Your registration completed";
@@ -38,7 +35,7 @@ public class TC_002 extends BaseTests {
         //
     }
 
-/*    @Test(priority = 4)
+    /* @Test(priority = 4)
     public void verifyToRegisterExistingAccout() {
         registerPage.registerInfor("Huyen","Tran","consiu862@gmail.com","123@QWa4");
         Assert.assertEquals(registerPage.getValiationError(), expValidationError);
