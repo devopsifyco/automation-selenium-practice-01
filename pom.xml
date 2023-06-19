@@ -13,6 +13,7 @@
         <maven.compiler.target>18</maven.compiler.target>
         <testng>7.7.0</testng>
         <selenium>4.8.1</selenium>
+        <apache.poi>5.2.2</apache.poi>
     </properties>
 <dependencies>
     <!-- https://mvnrepository.com/artifact/org.testng/testng -->
@@ -29,6 +30,12 @@
         <version>${selenium}</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi</artifactId>
+        <version>${apache.poi}</version>
+    </dependency>
 </dependencies>
     <build>
     <plugins>

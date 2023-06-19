@@ -10,18 +10,36 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 
 import org.testng.annotations.*;
+import utils.ReadPropertiesFile;
 
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.Duration;
 
 public class BaseTests {
     WebDriver driver;
     protected static Page page;
+    private String sbrowser,sURL, sEnv, sPwd;
 
-    @Parameters("browser")
+
+   //Parameters("browser")
     @BeforeClass
-    public void setUp(String sbrowser) {
+    public void setUp() throws IOException {
+/*  READ CONFIG.PROPERTIES FILE */
         System.out.println("start");
+        String path = System.getProperty("user.dir")+"/src/main/resources/propertyfiles/config.properties";
+        FileInputStream sConfigFile = new FileInputStream(path);
+        ReadPropertiesFile r = new ReadPropertiesFile(sConfigFile);
+
+        sbrowser =  r.readPropertiesValue("browser");
+
+        sURL = r.readPropertiesValue("url"); //"https://demowebshop.tricentis.com/
+        sEnv = r.readPropertiesValue("env");
+        sPwd = r.readPropertiesValue("password");
+/*end*/
+
         switch (sbrowser.toLowerCase()) {
             case "safari":
                 SafariOptions safariOptions = new SafariOptions();
@@ -53,10 +71,13 @@ public class BaseTests {
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             driver.manage().timeouts().implicitlyWait(Duration.ZERO);
 
-            driver.get("https://demowebshop.tricentis.com/");
+            driver.get(sURL);
+
 
             // Create object page with driver
             page = new BasePage(driver);
+            System.out.println(r.decodeString(sPwd));
+
         }
     }
 

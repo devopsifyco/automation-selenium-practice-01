@@ -35,6 +35,7 @@ public class TC003_ShoppingCart extends BaseTests {
             b = false;
         }
         Assert.assertTrue(b);
+
     }
 
     @Test(priority = 3)
@@ -68,6 +69,7 @@ public class TC003_ShoppingCart extends BaseTests {
             }
         }
         Assert.assertTrue(b);
+
     }
 
 }
