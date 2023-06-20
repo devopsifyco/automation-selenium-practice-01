@@ -73,7 +73,6 @@ public class BaseTests {
 
             driver.get(sURL);
 
-
             // Create object page with driver
             page = new BasePage(driver);
             System.out.println(r.decodeString(sPwd));
