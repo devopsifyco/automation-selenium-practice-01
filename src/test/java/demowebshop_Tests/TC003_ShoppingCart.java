@@ -22,6 +22,10 @@ public class TC003_ShoppingCart extends BaseTests {
         page.getInstance(HomePage.class).navigateToShoppingCartPage();
         Assert.assertEquals(page.getInstance(ShoppingCartPage.class).getShoppingCartPageTitle(),expTitle);
     }
+/*    @Test(priority = 2)
+    public void verifylogo(String expTitle) throws Exception {
+        Assert.assertTrue(page.getInstance(ShoppingCartPage.class).compareLogo());
+    }*/
 
     @Test(priority = 2)
     public void verifyShoppingCart() throws Exception {

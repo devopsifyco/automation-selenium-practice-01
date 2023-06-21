@@ -6,11 +6,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import javax.lang.model.element.Element;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCartPage extends BasePage {
     /* Web Element Locators*/
+    private final By logo = By.xpath("//*[@class= 'header-logo']//a/img");
+
     private By header = By.tagName("h1");
     private By content = By.className("order-summary-content");
     private By listOrderProcess = By.xpath("//*[@class='order-progress']//li/a");
@@ -23,7 +27,12 @@ public class ShoppingCartPage extends BasePage {
     public String getShoppingCartPageTitle(){
         return getPageTitle();
     }
+    public boolean compareLogo() throws IOException {
+        //File expectedFile = new File("src/test/resources/TakeElement_Wed_Jun_21_15_41_17_ICT_2023.jpg");
+        File expectedFile = new File("src/test/resources/logo1.jpg");
+        return imageComparision(getElement(logo),expectedFile);
 
+    }
     public String getHeader(){
         return getValue(header);
     }

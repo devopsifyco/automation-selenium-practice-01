@@ -9,6 +9,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import utils.ReadPropertiesFile;
 
@@ -77,6 +78,13 @@ public class BaseTests {
             page = new BasePage(driver);
             System.out.println(r.decodeString(sPwd));
 
+        }
+    }
+
+    @AfterMethod
+    public void takeScreenShotOnFailure(ITestResult testResult) throws IOException {
+        if (testResult.getStatus() == ITestResult.FAILURE) {
+            page.takeFullScreenshot();
         }
     }
 

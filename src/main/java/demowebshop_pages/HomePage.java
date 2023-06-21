@@ -6,9 +6,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.io.File;
+import java.io.IOException;
+
 public class HomePage extends BasePage {
     //NO WRITE - only READ
     //Page objects
+    private final By logo = By.xpath("//*[@class= 'header-logo']//a/img");
+    private final By lnkAll = By.className("header-links-wrapper");
     private final By lnkRegister = By.linkText("Register");//khai báo biến instant lnkRegister kiều By
     //biền này lưu trữ locator cho Register trên web, khai báo nó trong lớp homepage nên nó cho phép
     //các phương thức trong lớp này dễ dàng lương tác với element Register
@@ -29,7 +34,9 @@ public class HomePage extends BasePage {
     }
     //Hàm này để đi đến trang register trên web nè
     public RegisterPage navigateToRegisterPage() throws Exception {
-        //getElement(lnkRegister).click();
+
+
+        takeWebElementScreenshot(getElement(lnkRegister));
         clickElement(lnkRegister);
         return getInstance(RegisterPage.class);
     }
@@ -40,6 +47,11 @@ public class HomePage extends BasePage {
     }
 
     public ShoppingCartPage navigateToShoppingCartPage() throws Exception {
+        /* Takescreenshot for logo and all links*/
+
+        takeWebElementScreenshot(getElement(lnkAll));
+
+        System.out.println("screenshot element");
         clickElement(lnkShoppingCart);
         return getInstance(ShoppingCartPage.class);
     }
@@ -49,7 +61,9 @@ public class HomePage extends BasePage {
         return getInstance(WishListPage.class);
     }
 
-    public String getHomePageTitle(){
+    public String getHomePageTitle() throws IOException {
+        takeWebElementScreenshot(getElement(logo));
         return getPageTitle();
     }
+
 }

@@ -3,8 +3,11 @@ package demowebshop_Tests;
 import base.BaseTests;
 import demowebshop_pages.HomePage;
 import demowebshop_pages.RegisterPage;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.io.File;
 
 //TC001: Register new account successfully
 public class TC001 extends BaseTests {
@@ -19,13 +22,17 @@ public class TC001 extends BaseTests {
     @Test(priority = 1)
     public void verifyToHomePageSuccessfully() throws Exception {
         String actualTitle = page.getInstance(HomePage.class).getHomePageTitle();
+        //Take screenshot
+        //page.takeFullScreenshot();
         Assert.assertEquals(actualTitle,expTitleHomePage);
     }
+
     @Test(priority = 2)
     public void verifyNavigateToRegisterPageSuccessfully() throws Exception {
         registerPage = page.getInstance(HomePage.class).navigateToRegisterPage();
         Assert.assertEquals(registerPage.getRegisterPageTitle(),expTitleRegisterPage);
     }
+
    /*  @Test(priority = 3)
     public void verifyToRegisterNewAccount() {
         registerPage.registerInfor("Phu","Tran","consiu862@gmail.com","123@QWa4");

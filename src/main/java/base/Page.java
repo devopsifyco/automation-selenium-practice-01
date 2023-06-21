@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
@@ -39,4 +41,7 @@ public abstract class Page{
     public abstract void enter(By locator, String text);
     public abstract String getValue(By locator);
     public abstract String getAttributeValue(WebElement e,String attribute);
+    public abstract void takeFullScreenshot() throws IOException;
+    public abstract void takeWebElementScreenshot(WebElement element) throws IOException;
+    public abstract boolean imageComparision(WebElement ele, File expFile) throws IOException ;
 }
