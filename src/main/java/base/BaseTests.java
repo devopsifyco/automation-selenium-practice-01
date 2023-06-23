@@ -18,8 +18,18 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class BaseTests {
+    protected static final Logger LOGGER = Logger.getLogger(BaseTests.class.getName());
+    static {
+        LOGGER.setLevel(Level.OFF);
+        ConsoleHandler consoleHandler = new ConsoleHandler();
+        consoleHandler.setLevel(Level.INFO);
+        LOGGER.addHandler(consoleHandler);
+    }
     WebDriver driver;
     protected static Page page;
     private String sbrowser,sURL, sEnv, sPwd;
@@ -29,8 +39,9 @@ public class BaseTests {
     @BeforeClass
     public void setUp() throws IOException {
 /*  READ CONFIG.PROPERTIES FILE */
-        System.out.println("start");
-        String path = System.getProperty("user.dir")+"/src/main/resources/propertyfiles/config.properties";
+        //System.out.println("start");
+
+        String path = System.getProperty("user.dir")+"/src/main/resources/property-files/config.properties";
         FileInputStream sConfigFile = new FileInputStream(path);
         ReadPropertiesFile r = new ReadPropertiesFile(sConfigFile);
 
@@ -40,7 +51,7 @@ public class BaseTests {
         sEnv = r.readPropertiesValue("env");
         sPwd = r.readPropertiesValue("password");
 /*end*/
-
+        LOGGER.info("Start launching browser "+ sbrowser);
         switch (sbrowser.toLowerCase()) {
             case "safari":
                 SafariOptions safariOptions = new SafariOptions();
@@ -58,9 +69,18 @@ public class BaseTests {
                 edgeOptions.addArguments("--disable-notifications");
                 // For use with EdgeDriver:
                 driver = new EdgeDriver(edgeOptions);
+                break;
             }
+          /*  case "chrome": {
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--remote-allow-origins=*"); //version browse 111....
+                chromeOptions.addArguments("--disable-notifications");
+                driver = new ChromeDriver(chromeOptions);
+
+            }*/
 
             default: {
+               // LOGGER.warning("Browser is not correct name");
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--remote-allow-origins=*"); //version browse 111....
                 chromeOptions.addArguments("--disable-notifications");
@@ -76,7 +96,8 @@ public class BaseTests {
 
             // Create object page with driver
             page = new BasePage(driver);
-            System.out.println(r.decodeString(sPwd));
+            //System.out.println(r.decodeString(sPwd));
+            LOGGER.log(Level.CONFIG,"Password is " + r.decodeString(sPwd));
 
         }
     }

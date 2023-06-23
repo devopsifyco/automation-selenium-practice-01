@@ -16,6 +16,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+
 
 public class BasePage extends Page{
     private String path = "\\target\\screenshots\\";
@@ -34,7 +36,8 @@ public class BasePage extends Page{
         try {
             takeFullScreenshot();
         } catch (IOException e) {
-            e.printStackTrace();
+
+            LOGGER.severe(e.getMessage());
         }
         return driver.getTitle();//lenh nay cua selnium
     }
@@ -113,7 +116,8 @@ public class BasePage extends Page{
         File srcFile =((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         desFile = new File(System.getProperty("user.dir")+ path + screenshotName);
         FileUtils.copyFile(srcFile,desFile);
-        System.out.println("Capture screenshot successfully - image name is "+ screenshotName);
+        //System.out.println("Capture screenshot successfully - image name is "+ screenshotName);
+        LOGGER.log(Level.INFO,"Capture screenshot successfully - image name is "+ screenshotName);
     }
 
     /**Take screenshot of element is available from Selenium v4.x
@@ -125,7 +129,8 @@ public class BasePage extends Page{
         File srcFile = element.getScreenshotAs(OutputType.FILE);
         desFile = new File(System.getProperty("user.dir")+ path +"TakeElement_" + screenshotName);
         FileUtils.copyFile(srcFile, desFile);
-        System.out.println("Capture screenshot successfully - image name is "+ "TakeElement_" + screenshotName);
+        //System.out.println("Capture screenshot successfully - image name is "+ "TakeElement_" + screenshotName);
+        LOGGER.log(Level.INFO,"Capture screenshot successfully - image name is "+ "TakeElement_" + screenshotName);
     }
     @Override
     public boolean imageComparision (WebElement ele, File expFile) throws IOException {

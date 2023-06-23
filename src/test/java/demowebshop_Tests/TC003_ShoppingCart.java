@@ -10,17 +10,26 @@ import org.testng.annotations.Test;
 import testcase.BaseTest;
 
 import java.util.ArrayList;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class TC003_ShoppingCart extends BaseTests {
+
+
     //private String expTitleShoppingCartPage= "Demo Web Shop. Shopping Cart";
 
     TC001 tc001 = new TC001();
     @Parameters({"expTitleShoppingCartPage"})
     @Test(priority = 1)
     public void verifyNavigateToShoppingCartPageSuccessfully(String expTitle) throws Exception {
+
         tc001.verifyToHomePageSuccessfully();
+        LOGGER.log(Level.INFO,"Navigate to homepage");
         page.getInstance(HomePage.class).navigateToShoppingCartPage();
-        Assert.assertEquals(page.getInstance(ShoppingCartPage.class).getShoppingCartPageTitle(),expTitle);
+        LOGGER.log(Level.INFO,"Navigate to Shopping cart page");
+        Assert.assertEquals(page.getInstance(ShoppingCartPage.class).getShoppingCartPageTitle(), expTitle);
+        LOGGER.log(Level.INFO,"Test Case Passed with title is "+ page.getInstance(ShoppingCartPage.class).getShoppingCartPageTitle());
     }
 /*    @Test(priority = 2)
     public void verifylogo(String expTitle) throws Exception {

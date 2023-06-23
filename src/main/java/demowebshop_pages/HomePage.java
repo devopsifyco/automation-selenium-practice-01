@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
 
 public class HomePage extends BasePage {
     //NO WRITE - only READ
@@ -51,7 +52,8 @@ public class HomePage extends BasePage {
 
         takeWebElementScreenshot(getElement(lnkAll));
 
-        System.out.println("screenshot element");
+        //System.out.println("screenshot element");
+        LOGGER.log(Level.INFO,"screenshot element");
         clickElement(lnkShoppingCart);
         return getInstance(ShoppingCartPage.class);
     }

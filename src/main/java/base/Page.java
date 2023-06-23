@@ -1,36 +1,50 @@
 package base;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
+import java.util.Properties;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public abstract class Page{
+    protected static final Logger LOGGER = Logger.getLogger(Page.class.getName());
+
     //IMPORTANCE
     protected WebDriver driver;//nhung đứa thừa kế sẽ thấy dc driver này
     WebDriverWait wait;
 
     //Contructor: khoi tao de chúng dc sử dụng xuyên suốt lớp Page
-    public Page(WebDriver driver){//truyển webdriver vô nên các con của nó sẽ có key super
-       this.driver = driver;
-       this.wait = new WebDriverWait(this.driver, Duration.ofSeconds(15)); //explixit wait
+        public Page(WebDriver driver){//truyển webdriver vô nên các con của nó sẽ có key super
+
+        this.driver = driver;
+        this.wait = new WebDriverWait(this.driver, Duration.ofSeconds(15)); //explixit wait
+
+
     }
 
     //non-abstract method
-    public <TPage extends BasePage> TPage getInstance(Class<TPage> pageClass) throws Exception {
+    public <TPage extends BasePage> TPage getInstance(Class<TPage> pageClass) {
         try {
             return pageClass.getDeclaredConstructor(WebDriver.class).newInstance(this.driver);
 
         }catch (Exception e){
-            System.out.println(e.getMessage());
-            throw e;
+            //System.out.println(e.getMessage());
+            LOGGER.log(Level.SEVERE,e.getMessage());
         }
+        return null;
     }
+
 
     //abstract methods
     public abstract String getPageTitle();
