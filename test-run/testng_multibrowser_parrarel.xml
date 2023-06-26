@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite  thread-count="2" name="TestNGReporterTest" parallel="tests" verbose="0">
+
+    <parameter name="Search" value="automation test"/>
+    <parameter name="expTitleWishListPage" value="Demo Web Shop. Wishlist"/>
+    <parameter name="expTitleShoppingCartPage" value="Demo Web Shop. Shopping Cart"/>
+
+    <test verbose="2" name="chrome">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="demowebshop_Tests.TC001"/>
+        </classes>
+    </test>
+    <test verbose="2" name="edge">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="demowebshop_Tests.TC003_ShoppingCart"/>
+        </classes>
+    </test>
+    <test verbose="2" name="firefox">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="demowebshop_Tests.TC003_ShoppingCart"/>
+        </classes>
+    </test>
+</suite>
+

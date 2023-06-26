@@ -33,6 +33,9 @@ public abstract class Page{
 
     }
 
+    protected Page() {
+    }
+
     //non-abstract method
     public <TPage extends BasePage> TPage getInstance(Class<TPage> pageClass) {
         try {
@@ -55,7 +58,7 @@ public abstract class Page{
     public abstract void enter(By locator, String text);
     public abstract String getValue(By locator);
     public abstract String getAttributeValue(WebElement e,String attribute);
-    public abstract void takeFullScreenshot() throws IOException;
-    public abstract void takeWebElementScreenshot(WebElement element) throws IOException;
+    public abstract void takeFullScreenshot(String pathDesFile) throws IOException;
+    public abstract void takeWebElementScreenshot(WebElement element, String pathDesFile) throws IOException;
     public abstract boolean imageComparision(WebElement ele, File expFile) throws IOException ;
 }

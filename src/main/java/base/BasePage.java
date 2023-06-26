@@ -21,10 +21,8 @@ import java.util.logging.Level;
 
 public class BasePage extends Page{
     private String path = "\\target\\screenshots\\";
-    /*Set screenshot file name*/
-    private Date d = new Date();
-    private String screenshotName = d.toString().replace(":", "_").replace(" ", "_") + ".jpg";
     private File desFile;
+
 
     public BasePage(WebDriver driver) {
         super(driver);
@@ -33,12 +31,12 @@ public class BasePage extends Page{
     @Override
     public String getPageTitle() {
         //Take screenshot
-        try {
+        /*try {
             takeFullScreenshot();
         } catch (IOException e) {
 
             LOGGER.severe(e.getMessage());
-        }
+        }*/
         return driver.getTitle();//lenh nay cua selnium
     }
 
@@ -111,13 +109,22 @@ public class BasePage extends Page{
      * The file type need to be img file .png/.jpeg extension
      * */
 
-    @Override
-    public void takeFullScreenshot() throws IOException {
+    public void takeScreenshot(File desFile) throws IOException {
+
         File srcFile =((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        desFile = new File(System.getProperty("user.dir")+ path + screenshotName);
         FileUtils.copyFile(srcFile,desFile);
         //System.out.println("Capture screenshot successfully - image name is "+ screenshotName);
-        LOGGER.log(Level.INFO,"Capture screenshot successfully - image name is "+ screenshotName);
+       // LOGGER.log(Level.INFO,"Capture screenshot successfully - image name is "+ screenshotName);
+    }
+
+    @Override
+    public void takeFullScreenshot(String pathDesFile) throws IOException {
+
+        File srcFile =((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        desFile = new File(System.getProperty("user.dir")+pathDesFile);
+        FileUtils.copyFile(srcFile,desFile);
+        //System.out.println("Capture screenshot successfully - image name is "+ screenshotName);
+        LOGGER.log(Level.INFO,"Capture screenshot successfully - image name is "+ pathDesFile);
     }
 
     /**Take screenshot of element is available from Selenium v4.x
@@ -125,12 +132,12 @@ public class BasePage extends Page{
      * */
 
     @Override
-    public void takeWebElementScreenshot(WebElement element) throws IOException {
+    public void takeWebElementScreenshot(WebElement element, String pathDesFile) throws IOException {
         File srcFile = element.getScreenshotAs(OutputType.FILE);
-        desFile = new File(System.getProperty("user.dir")+ path +"TakeElement_" + screenshotName);
+        desFile = new File(pathDesFile);
         FileUtils.copyFile(srcFile, desFile);
         //System.out.println("Capture screenshot successfully - image name is "+ "TakeElement_" + screenshotName);
-        LOGGER.log(Level.INFO,"Capture screenshot successfully - image name is "+ "TakeElement_" + screenshotName);
+        //LOGGER.log(Level.INFO,"Capture screenshot successfully - image name is "+ "TakeElement_" + screenshotName);
     }
     @Override
     public boolean imageComparision (WebElement ele, File expFile) throws IOException {

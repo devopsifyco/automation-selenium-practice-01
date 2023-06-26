@@ -37,7 +37,7 @@ public class HomePage extends BasePage {
     public RegisterPage navigateToRegisterPage() throws Exception {
 
 
-        takeWebElementScreenshot(getElement(lnkRegister));
+      // takeWebElementScreenshot(getElement(lnkRegister));
         clickElement(lnkRegister);
         return getInstance(RegisterPage.class);
     }
@@ -50,7 +50,7 @@ public class HomePage extends BasePage {
     public ShoppingCartPage navigateToShoppingCartPage() throws Exception {
         /* Takescreenshot for logo and all links*/
 
-        takeWebElementScreenshot(getElement(lnkAll));
+       // takeWebElementScreenshot(getElement(lnkAll));
 
         //System.out.println("screenshot element");
         LOGGER.log(Level.INFO,"screenshot element");
@@ -64,7 +64,7 @@ public class HomePage extends BasePage {
     }
 
     public String getHomePageTitle() throws IOException {
-        takeWebElementScreenshot(getElement(logo));
+      //  takeWebElementScreenshot(getElement(logo));
         return getPageTitle();
     }
 

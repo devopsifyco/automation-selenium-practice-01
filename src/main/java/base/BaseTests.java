@@ -10,14 +10,16 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 
 import org.testng.ITestResult;
+import org.testng.Reporter; //testNG report
 import org.testng.annotations.*;
 import utils.ReadPropertiesFile;
 
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Calendar;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,9 +37,9 @@ public class BaseTests {
     private String sbrowser,sURL, sEnv, sPwd;
 
 
-   //Parameters("browser")
+    @Parameters("browser")
     @BeforeClass
-    public void setUp() throws IOException {
+    public void setUp(String browser) throws IOException {
 /*  READ CONFIG.PROPERTIES FILE */
         //System.out.println("start");
 
@@ -45,7 +47,8 @@ public class BaseTests {
         FileInputStream sConfigFile = new FileInputStream(path);
         ReadPropertiesFile r = new ReadPropertiesFile(sConfigFile);
 
-        sbrowser =  r.readPropertiesValue("browser");
+      //  sbrowser =  r.readPropertiesValue("browser");
+        sbrowser = browser; //from parameter TestNG
 
         sURL = r.readPropertiesValue("url"); //"https://demowebshop.tricentis.com/
         sEnv = r.readPropertiesValue("env");
@@ -59,7 +62,7 @@ public class BaseTests {
                 break;
             case "firefox": {
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
-                firefoxOptions.addArguments("--disable-notifications");
+
                 driver = new FirefoxDriver(firefoxOptions);
                 break;
             }
@@ -91,7 +94,7 @@ public class BaseTests {
 
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             driver.manage().timeouts().implicitlyWait(Duration.ZERO);
-
+            Reporter.log("Launching browser and navigate to page "+ sURL); ////log to Test report
             driver.get(sURL);
 
             // Create object page with driver
@@ -102,22 +105,30 @@ public class BaseTests {
         }
     }
 
-    @AfterMethod
-    public void takeScreenShotOnFailure(ITestResult testResult) throws IOException {
+   @AfterMethod
+    public String takeScreenShotOnFailure(ITestResult testResult) throws IOException {
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss");
+        String pathDesFile =  ("/target/screenshots/"+testResult.getName()+ formater.format(calendar.getTime())+".png" );
+       // String pathFile = null;
         if (testResult.getStatus() == ITestResult.FAILURE) {
-            page.takeFullScreenshot();
+            page.takeFullScreenshot(pathDesFile);
         }
+        return pathDesFile;
     }
 
     @AfterClass
     public void tearDownClass(){
-   //     driver.close();
-        System.out.println("tear down class");
+         driver.close();
+        /*System.out.println("tear down class");*/
+        Reporter.log("The driver has been closed.", true);
     }
 
     @AfterSuite
     public void tearDown(){
-     //   driver.quit();
-        System.out.println("tear down");
+         driver.quit();
+        /*System.out.println("tear down");*/
+        Reporter.log("The drivers has been closed all.", true);
+
     }
 }
