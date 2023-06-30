@@ -36,6 +36,10 @@ public class BaseTests {
     protected static Page page;
     private String sbrowser,sURL, sEnv, sPwd;
 
+    @DataProvider (name ="accountlist")
+    public Object[][] userData(){
+        return new Object[][] {{"Phu","Tran","consiu123@gmail.com","123@QWa4"},{"Ngo","Tran","ngo123@gmail.com","123@QWa4"}, {"huyen","Tran","huyen23@gmail.com","123@QWa4"}};
+    }
 
     @Parameters("browser")
     @BeforeClass

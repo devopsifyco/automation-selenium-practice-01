@@ -8,7 +8,7 @@
     <test verbose="0" name="chrome">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="demowebshop_Tests.TC003_ShoppingCart"/>
+            <class name="demowebshop_Tests.TC001"/>
         </classes>
     </test>
 </suite>

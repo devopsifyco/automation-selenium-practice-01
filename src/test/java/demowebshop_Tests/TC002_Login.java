@@ -4,6 +4,7 @@ import base.BaseTests;
 import demowebshop_pages.HomePage;
 import demowebshop_pages.LoginPage;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 public class TC002_Login extends BaseTests {
@@ -29,11 +30,12 @@ public class TC002_Login extends BaseTests {
         Assert.assertEquals(loginPage.getLoginPageTitle(),expTitleLoginPage);
     }
 
-    @Test(priority = 2)
-    public void verifyLoginSuccessfully()
-    {
-        //
+    @Test(priority = 2, dataProvider = "users")
+    void verifyLoginSuccessfully (String user, String pass){
+        Reporter.log("log in as user name = "+ user +" password = "+ pass, true);
+        Assert.assertTrue(true);
     }
+
 
     /* @Test(priority = 4)
     public void verifyToRegisterExistingAccout() {

@@ -6,6 +6,7 @@ import demowebshop_pages.ShoppingCartPage;
 import demowebshop_pages.WishListPage;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -20,10 +21,15 @@ import java.util.logging.Logger;
 public class TC003_ShoppingCart extends BaseTests {
     //private String expTitleShoppingCartPage= "Demo Web Shop. Shopping Cart";
 
+
+
     TC001 tc001 = new TC001();
-    @Parameters({"expTitleShoppingCartPage"})
+
+   @Parameters({"expTitleShoppingCartPage"})
     @Test(priority = 1)
     public void verifyNavigateToShoppingCartPageSuccessfully(String expTitle) throws Exception {
+
+
 
         tc001.verifyToHomePageSuccessfully();
         LOGGER.log(Level.INFO,"Navigate to homepage");

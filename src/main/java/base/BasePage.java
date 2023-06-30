@@ -78,6 +78,7 @@ public class BasePage extends Page{
     public void enter(By locator, String text) {
         WebElement e = getElement(locator);
         if (e.isDisplayed() && e.isEnabled()){
+            e.clear();
             e.sendKeys(text);
         }else {
             System.out.println("Not allow editable");
