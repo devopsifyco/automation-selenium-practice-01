@@ -61,4 +61,5 @@ public abstract class Page{
     public abstract void takeFullScreenshot(String pathDesFile) throws IOException;
     public abstract void takeWebElementScreenshot(WebElement element, String pathDesFile) throws IOException;
     public abstract boolean imageComparision(WebElement ele, File expFile) throws IOException ;
+    public  abstract void actionSearch(By locator ,String value);
 }

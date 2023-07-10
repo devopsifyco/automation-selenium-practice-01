@@ -3,6 +3,7 @@ package demowebshop_Tests;
 import base.BaseTests;
 import demowebshop_pages.HomePage;
 import demowebshop_pages.RegisterPage;
+import demowebshop_pages.SearchPage;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -13,10 +14,13 @@ import java.io.File;
 public class TC001 extends BaseTests {
 
     String expTitleHomePage ="Demo Web Shop";
+    String expTitleSearchPage = "Demo Web Shop. Search";
     String expTitleRegisterPage ="Demo Web Shop. Register";
     String expRegisterSuccMessage= "Your registration completed";
     String expValidationError = "The specified email already exists";
+    String searchValue = "Computing and Internet";
     RegisterPage registerPage;
+    SearchPage searchPage;
 
     @Test(priority = 1)
     public void verifyToHomePageSuccessfully() throws Exception {

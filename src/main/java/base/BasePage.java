@@ -2,6 +2,8 @@ package base;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -89,10 +91,15 @@ public class BasePage extends Page{
     public String getValue(By locator) {
         return getElement(locator).getText();
     }
-
+//Overloading
     @Override
     public String getAttributeValue(WebElement e,String attribute) {
         return e.getAttribute(attribute);
+    }
+
+    public String getAttributeValue(By locator,String attribute) {
+
+        return getElement(locator).getAttribute(attribute);
     }
 
     @Override
@@ -160,5 +167,17 @@ public class BasePage extends Page{
             System.out.println("The logo images are different"); //in case when difference found
         }
         return diff.hasDiff();
+    }
+    @Override
+    public void actionSearch(By locator ,String value){
+        Actions builder = new Actions(driver);
+        System.out.println("tessting");
+
+        builder.moveToElement(getElement(locator ))
+                .click()
+                .sendKeys(value)
+                .perform();
+
+
     }
 }
