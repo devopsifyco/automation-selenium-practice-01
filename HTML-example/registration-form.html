@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+      <html lang="en">
+      <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+
+<link rel="stylesheet" type="text/css"  href="styles.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script src="myScript.js"></script>
+<style>
+  .hide{
+  display:none;
+  }
+</style>
+</head>
+<body>
+
+<h2 align="center"> Registration form</h2>
+
+<form class="divcls">
+  <fieldset>
+    <legend style="color:blue">Personal information</legend>
+    <table>
+      <tr style="width:100%">
+        <td id="col" >First name</td>
+        <td><input type="text" name="firstname" class="text"></td>
+        <td></td>
+        <td><label>Last Name</label></td>
+        <td><input type="text" name="lastname" class="text"></td>
+      </tr>
+      <tr class="replay-in" id='birthday'>
+        <td>Date of birth</td>
+        <td>
+          <span style="display:none;"> 2020</span>
+          <input type="text" name="" value="" placeholder="04/03/2017" class="form_date text" id='from_filter'>
+        </td>
+        <td>
+          <span class="glyphicon glyphicon-calendar from_icon " style="padding-right: 6px"><img src="src/main/resources/calendarIcon.jpg"></span>
+        </td>
+        <td>Format options</td>
+        <td>
+          <select id="formatdate" >
+            <option value="mm/dd/yy">Default - mm/dd/yy</option>
+            <option value="yy-mm-dd">ISO 8601 - yy-mm-dd</option>
+            <option value="d M, y">Short - d M, y</option>
+            <option value="d MM, y">Medium - d MM, y</option>
+            <option value="DD, d MM, yy">Full - DD, d MM, yy</option>
+            <option value="&apos;day&apos; d &apos;of&apos; MM &apos;in the year&apos; yy">With text - &apos;day&apos; d &apos;of&apos; MM &apos;in the year&apos; yy</option>
+          </select>
+        </td>
+        <td></td>
+      </tr>
+      <tr  style="width:100%">
+        <td>Email</td>
+        <td><input type="text" name="email" class="text"></td>
+        <td></td>
+        <td><label>Mobile number</label></td>
+        <td><input type="text" name="mobilephone" class="text"></td>
+      </tr>
+      <tr>
+        <td>Gender</td>
+        <td colspan="4">
+          <label for="f-option">Male</label><input type="radio" id="f-option" name="selector">
+          <label for="f-option">Female</label><input type="radio" id="f-option" name="selector">
+        </td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td colspan="4">
+          <textarea id="w3review" name="w3review" rows="4" cols="79"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td>Province</td>
+        <td colspan="2">
+          <select>
+            <option value="kh">Khanh Hoa</option>
+            <option value="hcm">Ho Chi Minh</option>
+            <option value="vl">Vinh Long</option>
+            <option value="kg">Kien Giang</option>
+          </select>
+        </td>
+        <td>Country</td>
+        <td>
+          <select>
+            <option value="vn">Vietnam</option>
+            <option value="fr">France</option>
+            <option value="uk">England</option>
+            <option value="tl">Thailan</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+  </fieldset>
+  <fieldset>
+    <legend style="color:blue">Registration information</legend>
+    <table>
+      <tr>
+        <td id="col">Registration schedule</td>
+        <td colspan="4">
+          <input class="form-check-input" type="checkbox" id="monday" value="1" >Monday
+          <input type="checkbox" id="tuesday" value="2" checked> Tuesday
+          <input type="checkbox" id="wednesday" value="3" disabled> Wednesday
+          <input type="checkbox" id="thursday" value="4">Thursday
+          <input type="checkbox" id="friday" value="5">Friday
+          <input type="checkbox" id="saturday" value="6" disabled checked>Saturday
+          <input type="checkbox" id="sunday" value="7" disabled> Sunday
+        </td>
+      </tr>
+      <tr>
+        <td>T-Shirt size</td>
+
+        <td colspan="4" class="container">
+          <ul >
+            <li ><input type="radio" name="selectorsize" value="XS" ><label>Size XS</label></li>
+            <li ><input type="radio" name="selectorsize" value="S"><label>Size S</label></li>
+            <li ><input type="radio" name="selectorsize" value="M"><label>Size M</label></li>
+            <li><input type="radio" name="selectorsize" value="L"><label>Size L</label></li>
+            <li><input type="radio" name="selectorsize" value="XL"><label>Size XL</label></li>
+            <li><input type="radio" name="selectorsize" value="XXL"><label>Size XXL</label></li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Recieve mail via address</td>
+        <td colspan="4">
+          <div class="checkbox">
+            <input type="checkbox" id="click">
+            <label for="click" class="text"></label>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </fieldset>
+  <button type="button" class="submit" >Submit form</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <title>Alert example</title>
+</header>
+<body>
+
+<h1>JavaScript Alerts example </h1>
+
+<table>
+    <tr>
+        <td> An alert box </td>
+        <td><button onclick="myAlertFunction()" name="alert">Try with alert box</button></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> A confirm box</td>
+        <td> <button onclick="myConfirmFunction()" name="confirm">Try with confirm box</button></td>
+        <td><p id="confirm" style="color:red;"></p></td>
+
+    </tr>
+    <tr>
+        <td> The prompt() Method </td>
+        <td><button onclick="myPromptFunction()" name="prompt">Try with prompt box</button></td>
+        <td><p id="prompt" style="color:blue;"></p></td>
+    </tr>
+</table>
+<script>
+    function myAlertFunction() {  alert("Hello!\nI am an alert box!");}
+    function myConfirmFunction() {
+        let text = "Press a button!\nEither OK or Cancel.";
+        if (confirm(text) == true) {
+            text = "You pressed OK!";
+        } else {
+            text = "You canceled!";
+         }
+        document.getElementById("confirm").innerHTML = "Press a button!\nEither OK or Cancel.";;
+    }
+    function myPromptFunction() {
+        let person = prompt("Please enter your name", "Huyen Tran");
+        if (person != null) {
+           document.getElementById("prompt").innerHTML =
+            "Hello " + person + "! How are you today?";
+        }
+    }
+</script>
+</body>
+</html>

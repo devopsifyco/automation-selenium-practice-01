@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test automation practice form</title>
+    <style>
+ .divcls {
+ width:850px;
+ height: auto;
+ padding:10px;
+ color:#000000;
+ font-size:20px;
+}
+.checkbox{
+  height: auto;
+  width: 250px;
+  padding: 10px;
+  display: flex;
+  background: #24273a;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 5px 5px 30px rgba(0,0,0,.2);
+  justify-content: space-between;
+}
+.checkbox input{
+  outline: none;
+  height: 20px;
+  width: 90px;
+  border-radius: 50px;
+  -webkit-appearance: none;
+  position: relative;
+  background: #e6e6e6;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.checkbox input:checked{
+  background: #664AFF;
+}
+.checkbox input:before{
+  position: absolute;
+  content: "";
+  left: 0;
+  height: 100%;
+  width: 40px;
+  background: linear-gradient(#fff,#f2f2f2,#e6e6e6,#d9d9d9);
+  box-shadow: 0 2px 5px rgba(0,0,0,.2);
+  border-radius: 50px;
+  transform: scale(0.85);
+  transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+input:checked:before{
+  left: 50px;
+}
+.checkbox .text:before{
+  content: "Disabled";
+  font-size: 25px;
+  font-weight: 500;
+  color: #bfbfbf;
+}
+input:checked ~ .text:before{
+  color: #664AFF;
+  font-size: 25px;
+  content: "Enabled";
+}
+    </style>
+
+</head>
+<body style="text-align:left;">
+
+<h2> Test automation practice form</h2>
+
+<form method="post" action="/Tests/Post" class="divcls">
+    <fieldset>
+        <legend style="color:blue">Which days of the week are best to start something new?</legend>
+        <label class="form-check-label" style="color:green" >
+            <input class="form-check-input" type="checkbox" id="monday" value="1" >Monday
+            <input type="checkbox" id="tuesday" value="2" checked> Tuesday
+            <input type="checkbox" id="wednesday" value="3" disabled> Wednesday
+            <input type="checkbox" id="thursday" value="4">Thursday
+            <input type="checkbox" id="friday" value="5">Friday
+            <input type="checkbox" id="saturday" value="6" disabled checked>Saturday
+            <input type="checkbox" id="sunday" value="7" disabled> Sunday
+        </label>
+    </fieldset>
+</form>
+</br>
+<div class="checkbox">
+    <input type="checkbox" id="click">
+    <label for="click" class="text"></label>
+</div>
+</br>
+<form method="post" action="/Tests/Post" class="divcls">
+    <fieldset>
+        <legend style="color:blue">What is Your Favorite Pet?</legend>
+        <input type="checkbox" name="favorite_pet" value="Cats" onclick="return ValidatePetSelection();">Cats<br>
+        <input type="checkbox" name="favorite_pet" value="Dogs" onclick="return ValidatePetSelection();">Dogs<br>
+        <input type="checkbox" name="favorite_pet" value="Birds" onclick="return ValidatePetSelection();">Birds<br>
+        <input type="checkbox" name="favorite_pet" value="Fishes" onclick="return ValidatePetSelection();">Fishes<br>
+        <input type="checkbox" name="favorite_pet" value="Bears" onclick="return ValidatePetSelection();">Bears<br>
+        <br>
+        <input type="submit" value="Submit now">
+    </fieldset>
+</form>
+
+<script type="text/javascript">
+function ValidatePetSelection()
+{
+    var checkboxes = document.getElementsByName("favorite_pet");
+    var numberOfCheckedItems = 0;
+    for(var i = 0; i < checkboxes.length; i++)
+    {
+        if(checkboxes[i].checked)
+            numberOfCheckedItems++;
+    }
+    if(numberOfCheckedItems > 2)
+    {
+        alert("You can't select more than two favorite pets!");
+        return false;
+    }
+}
+</script>
+<script type="text/javascript">
+    $(".parent input").on('click',function(){
+  var _parent=$(this);
+  var nextli=$(this).parent().next().children().children();
+
+  if(_parent.prop('checked')){
+     console.log('parent checked');
+     nextli.each(function(){
+       $(this).children().prop('checked',true);
+     });
+
+  }
+  else{
+    console.log('parent un checked');
+     nextli.each(function(){
+       $(this).children().prop('checked',false);
+     });
+
+  }
+});
+
+$(".child input").on('click',function(){
+
+  var ths=$(this);
+  var parentinput=ths.closest('div').prev().children();
+  var sibblingsli=ths.closest('ul').find('li');
+
+  if(ths.prop('checked')){
+    console.log('child checked');
+    parentinput.prop('checked',true);
+  }
+  else{
+    console.log('child unchecked');
+       var status=true;
+     sibblingsli.each(function(){
+       console.log('sibb');
+       if($(this).children().prop('checked')) status=false;
+     });
+       if(status) parentinput.prop('checked',false);
+  }
+});
+</script>
+</body>
+</html>

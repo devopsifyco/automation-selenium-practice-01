@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Tooltip with bootstrap</title>
+</head>
+<style>
+
+    .theproblem {
+      margin-left:20px;
+      margin-right:20px;
+    }
+</style>
+<body style="text-align:center;">
+<div id="Main">
+    <div >
+        <h2 class="title-page"> Tooltip</h2>
+        </br>
+        </br>
+        <span data-toggle="tooltip"  data-placement="left" title="Gestión de Usuarios">Tooltip ở bên trái</span>
+        <span class="theproblem"> || </span>
+        <span data-toggle="tooltip"  data-placement="top" title="Gestión de Usuarios">Tooltip ở bên trên</span>
+        <span class="theproblem"> || </span>
+        <span data-toggle="tooltip"  data-placement="bottom" title="Gestión de Usuarios">Tooltip ở bên dưới</span>
+        <span class="theproblem"> || </span>
+        <span data-toggle="tooltip"  data-placement="right" title="Gestión de Usuarios">Tooltip ở bên phải</span>
+    </div>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="http://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<link href="http://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet"/>
+<script>        $(document).ready(function() {    $("body").tooltip({ selector: '[data-toggle=tooltip]' });});    </script>
+
+</body>
+</html>

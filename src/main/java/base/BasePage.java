@@ -98,7 +98,6 @@ public class BasePage extends Page{
     }
 
     public String getAttributeValue(By locator,String attribute) {
-
         return getElement(locator).getAttribute(attribute);
     }
 

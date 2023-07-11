@@ -11,6 +11,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Reporter;
 import testdata.ReadExcelFile;
 
+import java.awt.*;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
@@ -95,6 +98,8 @@ public class Main {
 
         WebElement searchTxt = driver.findElement(By.className("jeg_search_input"));
 
+        int x=  searchTxt.getLocation().getX();
+        int y =  searchTxt.getLocation().getY();
 
         action.moveToElement(searchTxt)
                 .click()
@@ -123,16 +128,40 @@ public class Main {
                 .keyDown(Keys.CONTROL)
                 .sendKeys("V")
                 .keyUp(Keys.CONTROL)
-                .keyDown(Keys.ENTER)
+               // .keyDown(Keys.ENTER)
                 .perform();
 
+        try {
+            Robot robot = new Robot();
+            robot.keyPress(KeyEvent.VK_ENTER);
+            System.out.println("testing");
+            robot.keyRelease(KeyEvent.VK_ENTER);
+
+            Thread.sleep(3000);
+
+
+            robot.mouseMove(x,y);
+            robot.mousePress(InputEvent.BUTTON3_DOWN_MASK);
+            robot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
+        } catch (AWTException ex) {
+            ex.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+/*
         WebElement testNav = driver.findElement(By.xpath("//div[@class='jeg_mainmenu_wrap']/ul/li[3]"));
         WebElement operationNav = driver.findElement(By.xpath("//div[@class='jeg_mainmenu_wrap']/ul/li[5]"));
         action.moveToElement(operationNav)
                 .pause(Duration.ofSeconds(10))
                 .moveToElement(testNav)
                 .perform();
+*/
 
+    /*    WebElement e = driver.findElement(By.linkText("Selenium Locator: CSS Selector"));
+        e.click();*/
+
+   // driver.quit();
 
     }
 }
