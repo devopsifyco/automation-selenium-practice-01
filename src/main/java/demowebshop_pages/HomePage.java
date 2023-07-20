@@ -2,6 +2,7 @@ package demowebshop_pages;
 
 
 import base.BasePage;
+import base.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -49,6 +50,11 @@ public class HomePage extends BasePage {
     public LoginPage navigateToLoginPage() throws Exception {
         clickElement(lnklogin);
         return getInstance(LoginPage.class);
+    }
+    public void enterDateTo(String dateto, String DateFrom){
+        selectDate(lnkRegister, lnkRegister, lnkRegister, DateFrom);
+        selectDate(lnkRegister, lnkRegister, lnkRegister, dateto);
+
     }
 
     public ShoppingCartPage navigateToShoppingCartPage() throws Exception {

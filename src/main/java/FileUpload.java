@@ -21,7 +21,7 @@ public class FileUpload {
         driver.findElement(By.xpath("//input[@id='file-upload']")).sendKeys(filePath);*/
 
         // Approach 2 - locate the drop area and using Robot class
-      /*  JavascriptExecutor executor = (JavascriptExecutor)driver;
+       /*  JavascriptExecutor executor = (JavascriptExecutor)driver;
         executor.executeScript("arguments[0].click();", driver.findElement(By.xpath("//input[@id='file-upload']")));
 
         dropFileUsingRobot(driver, filePath);*/

@@ -5,6 +5,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import ru.yandex.qatools.ashot.AShot;
@@ -176,7 +177,28 @@ public class BasePage extends Page{
                 .click()
                 .sendKeys(value)
                 .perform();
+    }
+    @Override
+    public void selectDate(By locatorMonth, By locatorYear,By locatordate, String date){
+        String month ="May";
+        String dateSelect ="25";
+        String year="2022";
+        //select tag
+        Select datepickerFrom_month = new Select(getElement(locatorMonth));
 
+        datepickerFrom_month.selectByVisibleText(month);
 
+        Select datepickerFrom_year = new Select(getElement(locatorYear));
+        datepickerFrom_year.selectByVisibleText(year);
+
+        //table get day
+        List<WebElement> allDates = getLstElement(locatordate);
+
+        for (WebElement ele : allDates) {
+            if (ele.isEnabled() && ele.isDisplayed() && dateSelect.equalsIgnoreCase(ele.getText())) {
+                ele.click();
+                break;
+            }
+        }
     }
 }

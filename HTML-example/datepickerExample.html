@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Datepicker - Show week of the year</title>
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=vielRavTOUmuzgxb3URy5DTwrUi3ae3uqTVbxf-JUXXT7-gPYbkEi3y8pa2HhZMsRJxzrxaNFAKsptR_bOGaCjZeGxB5J-lCp6BMsMUiTTuF89D1nmS_UGxaQr38gE29" charset="UTF-8"></script><style>
+         .divcls {
+         width:850px;
+         height: auto;
+         padding:10px;
+         margin: 10px;
+         color:#000000;
+         font-size:16px;
+         align-items: center;
+         box-shadow: 5px 5px 30px rgba(0,0,0,.2);
+         justify-content: space-between;
+        }
+    </style>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+
+    <script>
+  $( function() {
+
+    $( "#datepicker2" ).datepicker({
+      showOn: "button",
+      buttonImage: "src/main/resources/calendarIcon.jpg",
+      buttonImageOnly: true,
+      buttonText: "Select date"
+    });
+
+
+    var dateFormat = "mm/dd/yy",
+      from = $( "#from" ).datepicker({
+          showWeek: true,
+          firstDay: 1,
+          defaultDate: "+1w",
+          changeMonth: true,
+          changeYear: true,
+          numberOfMonths: 2
+        })
+
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+        }),
+      to = $( "#to" ).datepicker({
+        showWeek: true,
+        firstDay: 1,
+        defaultDate: "+1w",
+        changeMonth: true,
+        changeYear: true,
+        numberOfMonths: 2
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
+    $( "#formatdate" ).on( "change", function() {
+      $( "#from" ).datepicker( "option", "dateFormat", $( this ).val() );
+      $( "#to" ).datepicker( "option", "dateFormat", $( this ).val() );
+    });
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+      return date;
+    }
+  });
+
+  </script>
+</head>
+<body>
+<h2 align="center"> Test automation practice Datepicker</h2>
+
+<form class="divcls">
+    <fieldset>
+        <legend style="color:blue">Example 4 - Datepicker example</legend>
+        <p>Format options:
+            <select id="formatdate">
+                <option value="mm/dd/yy">Default - mm/dd/yy</option>
+                <option value="yy-mm-dd">ISO 8601 - yy-mm-dd</option>
+                <option value="d M, y">Short - d M, y</option>
+                <option value="d MM, y">Medium - d MM, y</option>
+                <option value="DD, d MM, yy">Full - DD, d MM, yy</option>
+                <option value="&apos;day&apos; d &apos;of&apos; MM &apos;in the year&apos; yy">With text - &apos;day&apos; d &apos;of&apos; MM &apos;in the year&apos; yy</option>
+            </select>
+        </p>
+        <label for="from">Date from:</label>
+        <input type="text" id="from" name="from">
+        <label for="to">Date to:</label>
+        <input type="text" id="to" name="to">
+    </fieldset>
+</form>
+
+</body>
+</html>
