@@ -6,7 +6,8 @@ import org.openqa.selenium.WebElement;
 import java.time.Duration;
 
 public class HandleTable {
-    public void handleWebTablePagination(WebDriver driver){
+    public static void handleWebTablePagination(WebDriver driver){
+
         driver.get("https://demo.opencart.com/admin/index.php?route=marketplace/modification");
 
         //Login
